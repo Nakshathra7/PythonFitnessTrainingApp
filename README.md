@@ -10,10 +10,10 @@ The main purpose of this project is to create online fitness training applicatio
 
 Use Cases:
 
-Member Creates Memeber Personal Profile
-Member Updates Memeber Personal Profile
-Member Read Memeber Personal Profile
-Member Creates Health Records
+* Member Creates Memeber Personal Profile
+* Member Updates Memeber Personal Profile
+* Member Read Memeber Personal Profile
+* Member Creates Health Records
 Member Reads Health Records
 Member Updates Health Records
 Member Deletes Health Records
