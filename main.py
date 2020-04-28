@@ -158,14 +158,63 @@ def trainerMemberAssignment():
     memberID = m.getFieldID(request.form.get('MemberName'))
     trainerID = t.getFieldID(request.form.get('TrainerName'))
 
+    m.getByFieldName('MemberName')
+    t.getByFieldName('TrainerName')
+
     tm = trainerMemberAssignmentList()
     tm.set('TrainerID',trainerID)
     tm.set('MemberID',memberID)
     tm.add()
-    tm.insert()  
-          
+    if tm.getByField('MemberID',memberID) == 0:
+        tm.insert() 
+        print(tm.data) 
+        return render_template('admin/savedtrainerMemberAssignment.html', title='Saved Trainer Member Assignment', member=m.data[0])
+    else:
+        msg = 'Member is Already Assigned to Trainer'
+        return render_template('admin/trainerMemberList.html', title='Trainer Member Assignment List', members=m.data, trainers=t.data, msg=msg)
+
+@app.route('/editTrainerMemberAssignment', methods = ['GET','POST'])
+def editTrainerMemberAssignment():
+    if checkSession() == False: #check to make sure the user is logged in
+        return redirect('login')
+    tm = trainerMemberAssignmentList()
+    t.set('TrainerName',request.form.get('TrainerName'))
+    t.set('TrainerEmail',request.form.get('TrainerEmail'))
+    t.set('TrainerPassword',request.form.get('TrainerPassword'))
+    t.set('TrainerYrsOfExperience',request.form.get('TrainerYrsOfExperience'))
+    t.set('TrainerGender',request.form.get('TrainerGender'))
+    t.add() 
+    if t.verifyNew():
+        t.update()
+        return render_template('trainer/savedTrainer.html', title='Trainer Saved',  trainer=t.data[0])
+    else:
+        return render_template('trainer/editTrainerMemberAssignment.html', title='Trainer Not Saved',  trainer=t.data[0],msg=t.errList) 
+
+@app.route('/allTrainerMemberList')
+def allTrainerMemberList():
+    if checkSession() == False: #check to make sure the user is logged in
+        return redirect('login')
+    m = memberList()
+    t = trainerList()
+    tm = trainerMemberAssignmentList()
+    tm.getAll()
     print(tm.data)
-    return render_template('admin/savedtrainerMemberAssignment.html', title='Saved Trainer Member Assignment', member=m.data[0])
+    return render_template('admin/allTrainerMemberList.html', title='Trainer Member List', trainerMembers=tm.data)
+
+@app.route('/trainerMemberAssignmentByID') 
+def trainerMemberAssignmentByID():
+    if checkSession() == False: #check to make sure the user is logged in
+        return redirect('login')
+    tm = trainerMemberAssignmentList()
+    if request.args.get(tm.pk) is None:
+        return render_template('admin/trainerMemberError.html', msg='No TrainerMemberAssignment ID is given.')
+    
+    tm.getByID(request.args.get(tm.pk))
+    if len(tm.data) <= 0:
+        return render_template('admin/trainerMemberError.html', msg='TrainerMemberAssignment ID does not exist')
+    print(tm.data)
+    return render_template('admin/editTrainerMemberAssignment.html', title='Trainer Member List', trainerMember=tm.data[0])
+
 
 # Admin Section Ends  
 
@@ -476,7 +525,6 @@ def addTrainer():
 
     else:
         t = trainerList()
-        t.set('TrainerID',request.form.get('TrainerID'))
         t.set('TrainerName',request.form.get('TrainerName'))
         t.set('TrainerEmail',request.form.get('TrainerEmail'))
         t.set('TrainerPassword',request.form.get('TrainerPassword'))
@@ -495,6 +543,7 @@ def editTrainer():
     if checkSession() == False: #check to make sure the user is logged in
         return redirect('login')
     t = trainerList()
+    t.set('TrainerID',request.form.get('TrainerID'))
     t.set('TrainerName',request.form.get('TrainerName'))
     t.set('TrainerEmail',request.form.get('TrainerEmail'))
     t.set('TrainerPassword',request.form.get('TrainerPassword'))
@@ -503,9 +552,9 @@ def editTrainer():
     t.add() 
     if t.verifyNew():
         t.update()
-        return render_template('trainer/savedTrainer.html', title='Trainer Saved',  trainer=t.data[0])
+        return render_template('trainer/saveEditTrainer.html', title='Trainer Saved', trainer=t.data[0])
     else:
-        return render_template('trainer/editTrainer.html', title='Trainer Not Saved',  trainer=t.data[0],msg=t.errList) 
+        return render_template('trainer/editTrainer.html', title='Trainer Not Saved', trainer=t.data[0],msg=t.errList) 
 
 @app.route('/allTrainerList')
 def allTrainerList():

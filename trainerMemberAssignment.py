@@ -32,25 +32,7 @@ class trainerMemberAssignmentList(baseObject):
 		for row in cur:
 			self.data.append(row)
 
-	def verifyNew(self,n=0):
-		self.errList = []
-
-		if len(self.data[n]['MealPlanName']) == 0:
-			self.errList.append("Meal Plan Name cannot be blank")
-
-		if len(self.data[n]['MealPlanDescription']) == 0:
-			self.errList.append("Meal Plan Description cannot be blank")
-
-		if len(self.data[n]['NoOfDaysMealPlan']) == 0:
-			self.errList.append("No Of Days Meal Plan cannot be blank")
-
-		if len(self.errList) > 0:
-			return False
-		else:
-			return True	
-
-		#Add if statements for validation of other fields
-		#Add Unit Test
+	
 
 	
 

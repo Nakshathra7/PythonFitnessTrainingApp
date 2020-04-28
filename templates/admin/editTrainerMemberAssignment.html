@@ -2,14 +2,8 @@
 
 {% block content %}
     <h1>Trainer Member Assignment List</h1>
-    {% if msg %}
-        <div id="errorMsg">           
-            {{ msg }}<br>
-        </div>
-        <br/>
-    {% endif %}
     <form action="/trainerMemberAssignment" method="POST">
-        Member List:<br><br>
+        Member List:<br>
             <select name="MemberName">
                 {% for member in members %}
                 <option value="{{ member.MemberName }}">{{ member.MemberName }}</option>
@@ -19,17 +13,15 @@
         <br/>
         <br/>
 
-        Trainer List:<br><br>
+        Trainer List:<br>
             <select name="TrainerName">
                 {% for trainer in trainers %}
                 <option value="{{ trainer.TrainerName }}">{{ trainer.TrainerName }}</option>
                 {% endfor %}
             </select>
-
         <br/>
         <br/>
         <input type="submit" value="Add Assignment" />
-        <br/>
         <br/>
         <a href="adminMain">Return to Admin Dashboard View</a> 
 

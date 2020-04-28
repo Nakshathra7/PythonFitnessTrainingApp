@@ -24,6 +24,7 @@
 #logoutBtn a {
     text-decoration: none;
     color: #fff;
+    cursor: pointer;
 }
   
 table {

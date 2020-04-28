@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Assigned Trainer Member List</h1>
+    
+    <table>
+    	<tr>
+    		<th>TrainerMemberAssignmentID</th>
+    		<th>TrainerID</th>
+            <th>MemberID</th>
+    	</tr>
+    {% for trainerMember in trainerMembers %}
+    	<tr>
+            <td><a href="trainerMemberAssignmentByID?TrainerMemberAssignmentID={{ trainerMember.TrainerMemberAssignmentID }}">{{ trainerMember.TrainerMemberAssignmentID }}</a></td>
+    		<td>{{ trainerMember.TrainerID }}</td>
+    		<td>{{ trainerMember.MemberID }}</td>
+    	</tr>  
+    {% endfor %}
+    </table>
+    <br/>
+    <br/>
+    <a href="adminMain">Return to Admin Dashboard View</a> 
+   
+{% endblock %}

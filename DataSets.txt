@@ -1,9 +1,10 @@
+Workout Details
+--------------------------------
 Beginner Training
 Cardio Cadets
 Bodyweight Brigade
 Dumbbell Division
 Barbell Battalion
-
 
 Cardio Burnout
 HIIT Workout 
@@ -11,7 +12,8 @@ Plank-Based Workout
 Mountain Climbers 
 Pilates Workout  
 
-
+Meal Plan Details
+------------------------------------------------
 Paleo Meal Plans
 Chicken With Broccoli
 
@@ -43,7 +45,8 @@ Plant-Based Meal Plans
 Roasted Vegetable Casserole
 
 
-
+Subscription
+--------------------
 Planet Fitness
 Home
 $20
