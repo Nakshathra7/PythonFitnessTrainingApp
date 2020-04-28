@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+     <h1>Hello {{ trainerName }}</h1>
+    {% if msg %}
+   		<div id="msg">
+    		{{ msg}}
+   		 </div>					
+    {% endif %}
+    <br>
+    <br>
+    <a href="trainerByID?TrainerID={{ trainerByID }}">Edit My Trainer Details</a>
+    <br/>
+    <br/>
+    <a href="addMealPlan">Add Meal Plan Details</a>
+    <br/>
+    <br/>
+    <a href="allMealPlanList">View Meal Plan Details</a>
+    <br/>
+    <br/>
+    <a href="addWorkout">Add Workout Plan Details</a>
+    <br/>
+    <br/>
+    <a href="allWorkoutList">View Workout Plan Details</a>
+    <br/>
+    <br/>
+    <a href="trainerAssignedMemberList">View Assigned Member Details</a>
+
+{% endblock %}

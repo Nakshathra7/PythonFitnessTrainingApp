@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Workout Plan</h1>
+    
+    <table>
+    	<tr>
+    		<th>WorkoutName</th>
+            <th>WorkoutType</th>
+    		<th>WorkoutTimeTotalHours</th>
+            <th>NoOfDaysWorkout</th>
+    	</tr>
+    	<tr>
+    		<td>{{ workout.WorkoutName }}</td>
+    		<td>{{ workout.WorkoutType }}</td>
+            <td>{{ workout.WorkoutTimeTotalHours }}</td>
+            <td>{{ workout.NoOfDaysWorkout }}</td>
+    	</tr>  
+    </table>
+
+    <br/>
+    <br/>
+    <a href="memberMain">Back to Member Dashboard</a>
+   
+{% endblock %}

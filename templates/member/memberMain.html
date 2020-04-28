@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Hello {{ memberName }}</h1>
+    {% if msg %}
+   		<div id="msg">
+    		{{ msg }}
+   		 </div>					
+    {% endif %}
+    <br>
+    <br>
+    <a href="memberByID?MemberID={{ memberByID }}">Edit My Member Details</a>
+    <br/>
+    <br/>
+    <a href="memberMealPlanByID?MealPlanID={{ mealPlanID }}">View My Meal Plan Details</a>
+    <br/>
+    <br/>
+    <a href="memberWorkoutPlanByID?WorkoutID={{ workoutID }}">View My Workout Details</a>
+
+    
+{% endblock %}

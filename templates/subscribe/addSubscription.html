@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>New Subscription</h1>
+    {% if msg %}
+        <div id="errorMsg">
+            {% for err in msg %}
+                {{ err }}<br>
+            {% endfor %}
+        </div>
+        <br/>
+    {% endif %}
+    <form action="/addSubscription" method="POST">
+        <b>Subscription Name:</b><br>
+        <input type="text" name="SubscriptionName" />
+        <br><br>
+
+        <b>Subscription Price:</b><br>
+        <input type="text" name="SubscriptionPrice" />
+        <br><br>
+
+        <b>Subscription Type:</b><br>
+        <input type="text" name="SubscriptionType" />
+        <br><br>
+
+        <b>No Of Days Subscription:</b><br>
+        <input type="text" name="NoOfDaysSubscription" />
+        <br><br>
+
+        <input type="submit" value="Add Subscription" />
+        <br/>
+        <br/>
+        <a href="adminMain">Return to Admin Dashboard View</a> 
+    </form>
+    
+{% endblock %}

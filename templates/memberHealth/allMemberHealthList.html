@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Member Health List</h1>
+    
+    <table>
+    	<tr>
+            <th>MemberID</th>
+    		<th>MemberHealthID</th>
+    		<th>MemberAge</th>
+            <th>MemberGender</th>
+    		<th>MemberHeight</th>
+            <th>MemberWeight</th>
+            <th>MemberBMI</th>
+            <th>MemberProfession</th>
+            <th>MemberMedicalAilments</th>
+    	</tr>
+    {% for memberHealth in memberHealths %}
+    	<tr>
+            <td>{{ memberHealth.MemberID }}</td>
+    		<td>{{ memberHealth.MemberHealthRecordID }}</td>
+    		<td>{{ memberHealth.MemberAge }}</td>
+    		<td>{{ memberHealth.MemberGender }}</td>
+            <td>{{ memberHealth.MemberHeight }}</td>
+            <td>{{ memberHealth.MemberWeight }}</td>
+            <td>{{ memberHealth.MemberBMI }}</td>
+            <td>{{ memberHealth.MemberProfession }}</td>
+            <td>{{ memberHealth.MemberMedicalAilments }}</td>
+    	</tr>  
+    {% endfor %}
+    </table>
+    <br/>
+    <br/>
+    <a href="adminMain">Return to Admin Dashboard View</a> 
+   
+{% endblock %}

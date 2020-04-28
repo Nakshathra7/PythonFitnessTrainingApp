@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Main Menu</h1>
+    {% if msg %}
+   		<div id="msg">
+    		{{ msg}}
+   		 </div>					
+    {% endif %}
+    <br>
+    <br>
+    <a href="trainerByID?TrainerID={{ trainerByID }}">Edit My Trainer Details</a>
+    <br/>
+    <br/>
+    <a href="addMealPlan">Add Meal Plan Details</a>
+    <br/>
+    <br/>
+    <a href="addWorkout">Add Workout Plan Details</a>
+
+{% endblock %}

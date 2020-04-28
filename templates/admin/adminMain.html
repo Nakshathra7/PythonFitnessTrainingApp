@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Main Menu</h1>
+    {% if msg %}
+   		<div id="msg">
+    		{{ msg}}
+   		 </div>					
+    {% endif %}
+    <br>
+    <br>
+    <a href="allMemberHealthList">View Members List</a>
+    <br/>
+    <br/>
+    <a href="allTrainerList">View Trainers List</a>
+    <br/>
+    <br/>
+    <a href="trainerMemberList">Assign Member with Trainer</a>
+    <br/>
+    <br/>
+    <a href="addSubscription">Add Subscription Details</a>
+    <br/>
+    <br/>
+    <a href="allSubscriptionList">View Subscription Details</a>
+    
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Product</h1>
+    <table>
+    	<tr>
+    		 <td>pid</td>
+            <td>sku</td>
+            <td>name</td>
+            <td>price</td>
+    	</tr>
+    	<tr>
+    		<td>{{ product.pid }}</td>
+            <td>{{ product.sku }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.price }}</td>
+    	</tr>
+    </table>
+{% endblock %}

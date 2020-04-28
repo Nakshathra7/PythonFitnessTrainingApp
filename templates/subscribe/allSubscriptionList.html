@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Subscription List</h1>
+    
+    <table>
+    	<tr>
+    		<th>SubscriptionID</th>
+    		<th>SubscriptionName</th>
+            <th>SubscriptionPrice</th>
+    		<th>SubscriptionType</th>
+            <th>NoOfDaysSubscription</th>
+    	</tr>
+    {% for subscribe in subscribes %}
+    	<tr>
+    		<td><a href="subscriptionByID?SubscriptionID={{ subscribe.SubscriptionID }}">{{ subscribe.SubscriptionID }}</a></td>
+    		<td>{{ subscribe.SubscriptionName }}</td>
+    		<td>{{ subscribe.SubscriptionPrice }}</td>
+            <td>{{ subscribe.SubscriptionType }}</td>
+            <td>{{ subscribe.NoOfDaysSubscription }}</td>
+    	</tr>  
+    {% endfor %}
+    </table>
+    <br/>
+    <br/>
+    <a href="adminMain">Return to Admin Dashboard View</a> 
+   
+{% endblock %}

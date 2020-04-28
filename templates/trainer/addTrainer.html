@@ -1,0 +1,45 @@
+{% extends "loginbase.html" %}
+
+{% block content %}
+    <h1>New Trainer</h1>
+    {% if msg %}
+        <div id="errorMsg">
+            {% for err in msg %}
+                {{ err }}<br>
+            {% endfor %}
+        </div>
+        <br/>
+    {% endif %}
+    <form action="/addTrainer" method="POST">
+        <b>Trainer Name:</b><br>
+        <input type="text" name="TrainerName" />
+        <br><br>
+
+        <b>Trainer Email:</b><br>
+        <input type="text" name="TrainerEmail" />
+        <br><br>
+
+        <b>Trainer Password:</b><br>
+        <input type="password" name="TrainerPassword" />
+        <br><br>
+
+        <b>Retype Password:</b><br>
+        <input type="password" name="TrainerRePassword" />
+        <br><br>
+
+        <b>Trainer Years Of Experience:</b><br>
+        <input type="number" name="TrainerYrsOfExperience" min=1 max=50 />
+        <br><br>
+
+        <b>Trainer Gender:</b><br>
+        <input type="text" name="TrainerGender" />
+        <br><br>
+
+        <input type="submit" value="Add Trainer" />
+        <br/>
+        <br/>
+        <a href="login">Back to Login</a>
+        
+    </form>
+    
+{% endblock %}

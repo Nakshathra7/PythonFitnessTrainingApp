@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Trainer Member Assignment List</h1>
+     <table>
+        <tr>
+            <th>MemberID</th>
+            <th>MemberHealthRecordID</th>
+            <th>MemberAge</th>
+            <th>MemberGender</th>
+            <th>MemberHeight</th>
+            <th>MemberWeight</th>
+            <th>MemberProfession</th>
+            <th>MemberBMI</th>
+            <th>MemberMedicalAilments</th>
+        </tr>
+    {% for trainerAssigned in trainerAssignedMember %}
+        {% for trainerMember in trainerAssigned %}
+            <tr>
+                <td>{{ trainerMember.MemberID }}</td>
+                <td>{{ trainerMember.MemberHealthRecordID }}</td>
+                <td>{{ trainerMember.MemberAge }}</td>
+                <td>{{ trainerMember.MemberGender }}</td>
+                <td>{{ trainerMember.MemberHeight }}</td>
+                <td>{{ trainerMember.MemberWeight }}</td>
+                <td>{{ trainerMember.MemberProfession }}</td>
+                <td>{{ trainerMember.MemberBMI }}</td>
+                <td>{{ trainerMember.MemberMedicalAilments }}</td>
+                <td><a href="getMealWorkoutPlan?MemberID={{ trainerMember.MemberID }}">Add MealPlan & Workout</a></td>
+            </tr> 
+        {% endfor %} 
+    {% endfor %}
+    </table>
+
+    <br/>
+    <br/>
+    <a href="trainerMain">Back to Trainer Dashboard</a>  
+   
+{% endblock %}

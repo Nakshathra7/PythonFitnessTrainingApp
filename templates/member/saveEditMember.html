@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Member {{ member.MemberName }} Updated...!!!</h1>
+    <br>
+    <a href="memberHealthByID?MemberID={{ memberID }}">Proceed to Edit Health Record Details</a> 
+    <br/>
+	<br/>
+	<a href="memberMain">Back to Member Dashboard</a>
+{% endblock %}

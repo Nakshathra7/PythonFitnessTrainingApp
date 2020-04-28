@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Meal Plan</h1>
+	{% if msg %}
+      	<div id="errorMsg">
+	  		{% for err in msg %}
+				{{ err }}<br>
+	  		{% endfor %}
+	  	</div>
+	  	<br/>
+	{% endif %}
+	  
+	<form action="/editMealPlan" method="POST">
+		<b>Meal Plan Name:</b><br>
+		<input type="text" name="MealPlanName" value="{{ meals.MealPlanName }}" />
+		<br><br>
+		
+		<b>Meal Plan Description:</b><br>
+		<input type="text" name="MealPlanDescription" value="{{ meals.MealPlanDescription }}" />
+		<br><br>
+		
+		<b>No Of Days Meal Plan:</b><br>
+		<input type="text" name="NoOfDaysMealPlan" value="{{ meals.NoOfDaysMealPlan }}" />
+		<br><br>
+		
+		<input type="hidden" name="MealPlanID" value="{{ meals.MealPlanID }}" />
+		
+		<input type="submit" value="Edit Meal Plan"/>
+		
+		</form>
+		
+		<form action="/deleteMealPlan" method="POST">
+			<input type="submit" value="Delete this Meal Plan" />
+			<input type="hidden" name="MealPlanID" value="{{ meals.MealPlanID }}" />
+			<br/>
+			<br/>
+			<a href="allMealPlanList">Cancel</a>
+		</form>
+{% endblock %}

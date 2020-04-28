@@ -1,0 +1,30 @@
+{% extends "loginbase.html" %}
+
+{% block content %}
+    <h1>Subscription List</h1>
+    <form action="/addMemberSubscription?MemberID={{ memberID }}" method="POST"> 
+        <table>
+        	<tr>
+        		<th>SubscriptionID</th>
+        		<th>SubscriptionName</th>
+                <th>SubscriptionPrice</th>
+        		<th>SubscriptionType</th>
+                <th>NoOfDaysSubscription</th>
+        	</tr>
+        {% for subscribe in subscribes %}
+        	<tr>
+        		<td>
+                    <input type="radio" id="SubscriptionID" name="SubscriptionID" value="{{ subscribe.SubscriptionID }}">
+                    <label for="SubscriptionID">{{ subscribe.SubscriptionID }}</label></td>
+        		<td>{{ subscribe.SubscriptionName }}</td>
+        		<td>{{ subscribe.SubscriptionPrice }}</td>
+                <td>{{ subscribe.SubscriptionType }}</td>
+                <td>{{ subscribe.NoOfDaysSubscription }}</td>
+        	</tr>  
+        {% endfor %}
+        </table>
+        <br/>
+        <br/>
+        <input type="submit" value="Add Subscription" />
+    </form>
+{% endblock %}

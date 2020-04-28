@@ -1,0 +1,7 @@
+{% extends "loginbase.html" %}
+
+{% block content %}
+    <h1>Member {{ member.MemberName }} Saved...!!!</h1>
+    <br>
+    <a href="addMemberHealth?MemberID={{ memberID }}">Proceed to Add Health Record Details</a> 
+{% endblock %}

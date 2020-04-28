@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Workout Plan</h1>
+	{% if msg %}
+      	<div id="errorMsg">
+	  		{% for err in msg %}
+				{{ err }}<br>
+	  		{% endfor %}
+	  	</div>
+	 	 <br/>
+	{% endif %}
+	  
+	<form action="/editWorkout" method="POST">
+		<b>Workout Name:</b><br>
+		<input type="text" name="WorkoutName" value="{{ workout.WorkoutName }}" />
+		<br><br>
+		
+		<b>Workout Type:</b><br>
+		<input type="text" name="WorkoutType" value="{{ workout.WorkoutType }}" />
+		<br><br>
+		
+		<b>Workout Time Total Hours:</b><br>
+		<input type="text" name="WorkoutTimeTotalHours" value="{{ workout.WorkoutTimeTotalHours }}" />
+		<br><br>
+
+		<b>No Of Days Workout:</b><br>
+		<input type="text" name="NoOfDaysWorkout" value="{{ workout.NoOfDaysWorkout }}" />
+		<br><br>
+		
+		<input type="hidden" name="WorkoutID" value="{{ workout.WorkoutID }}" />
+		
+		<input type="submit" value="Edit Workout Plan"/>
+				
+	</form>
+	
+	<form action="/deleteWorkout" method="POST">
+		<input type="submit" value="Delete this Workout" />
+		<input type="hidden" name="WorkoutID" value="{{ workout.WorkoutID }}" />
+		<br/>
+		<br/>
+		<a href="allWorkoutList">Cancel</a>
+	</form>
+{% endblock %}

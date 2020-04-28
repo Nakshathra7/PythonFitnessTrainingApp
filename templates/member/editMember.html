@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Member</h1>
+	{% if msg %}
+      	<div id="errormsg">
+	  		{% for err in msg %}
+				{{ err }}<br>
+	  		{% endfor %}
+	  	</div>
+	  	<br/>
+	{% endif %}
+	  
+	<form action="/editMember" method="POST">
+		<b>Member Name:</b><br>
+		<input type="text" name="MemberName" value="{{ member.MemberName }}" />
+		<br><br>
+		
+		<b>Member Address:</b><br>
+		<input type="text" name="MemberAddress" value="{{ member.MemberAddress }}" />
+		<br><br>
+		
+		<b>Member Email:</b><br>
+		<input type="text" name="MemberEmail" value="{{ member.MemberEmail }}" />
+		<br><br>
+		
+		<input type="hidden" name="MemberID" value="{{ member.MemberID }}" />
+		
+		<b>Member Password:</b><br>
+		<input type="password" name="MemberPassword" />
+		<br><br>
+		
+		<b>Retype Password:</b><br>
+		<input type="password" name="MemberPassword2" />
+		<br><br>
+		
+		<input type="submit" value="Edit Member"/>
+		<br/>
+		<br/>
+		<a href="memberMain">Cancel</a>
+			
+	</form>
+		
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Member Subscription</h1>
+	{% if msg %}
+     	<div id="errormsg">
+	  		{% for err in msg %}
+				{{ err }}<br>
+	  		{% endfor %}
+	  	</div>
+	  	<br/>
+	{% endif %}
+	  
+	<form action="/editSubscription" method="POST">
+		<b>Subscription Name:</b><br>
+		<input type="text" name="SubscriptionName" value="{{ subscribe.SubscriptionName }}" />
+		<br><br>
+		
+		<b>Subscription Price:</b><br>
+		<input type="text" name="SubscriptionPrice" value="{{ subscribe.SubscriptionPrice }}" />
+		<br><br>
+		
+		<b>Subscription Type:</b><br>
+		<input type="text" name="SubscriptionType" value="{{ subscribe.SubscriptionType }}" />
+		<br><br>
+
+		<b>No Of Days Subscription:</b><br>
+		<input type="text" name="NoOfDaysSubscription" value="{{ subscribe.NoOfDaysSubscription }}" />
+		<br><br>
+		
+		<input type="hidden" name="SubscriptionID" value="{{ subscribe.SubscriptionID }}" />
+		
+		<input type="submit" value="Edit Subscription"/>
+		
+			
+	</form>
+		
+	<form action="/deleteSubscription" method="POST">
+		<input type="submit" value="Delete this Subscription" />
+		<input type="hidden" name="SubscriptionID" value="{{ subscribe.SubscriptionID }}" />
+		<br/>
+		<br/>
+		<a href="allSubscriptionList">Cancel</a>
+	</form>
+
+{% endblock %}

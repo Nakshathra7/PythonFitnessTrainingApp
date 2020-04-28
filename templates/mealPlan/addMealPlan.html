@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>New Meal Plan</h1>
+    {% if msg %}
+        <div id="errorMsg">
+            {% for err in msg %}
+                {{ err }}<br>
+            {% endfor %}
+        </div>
+        <br/>
+    {% endif %}
+    <form action="/addMealPlan" method="POST">
+        <b>Meal Plan Name:</b><br>
+        <input type="text" name="MealPlanName" />
+        <br><br>
+
+        <b>Meal Plan Description:</b><br>
+        <input type="text" name="MealPlanDescription" />
+        <br><br>
+
+        <b>No Of Days Meal Plan:</b><br>
+        <input type="text" name="NoOfDaysMealPlan" />
+        <br><br>
+
+        <input type="submit" value="Add Meal Plan" />
+        <br/>
+        <br/>
+        <a href="trainerMain">Cancel</a> 
+    </form>
+    
+{% endblock %}

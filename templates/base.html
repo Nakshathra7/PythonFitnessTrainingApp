@@ -1,0 +1,17 @@
+<html>
+    <head>
+      {% if title %}
+        <title>{{ title }}</title>
+      {% else %}
+        <title>Welcome to Fitness Training Site</title>
+      {% endif %}
+	  <link rel="stylesheet" type="text/css" href="static/style.css">
+    
+    </head>
+    <body>
+        <h1 id="header">Welcome to Fitness Training Site</h1>
+        <div id="logoutBtn"><a href="/logout">Logout</a></div>
+        
+        {% block content %}{% endblock %}
+    </body>
+</html>

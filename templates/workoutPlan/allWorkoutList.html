@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Workout Plan List</h1>
+    
+    <table>
+    	<tr>
+    		<th>WorkoutID</th>
+    		<th>WorkoutName</th>
+            <th>WorkoutType</th>
+    		<th>WorkoutTimeTotalHours</th>
+            <th>NoOfDaysWorkout</th>
+    	</tr>
+    {% for workout in workouts %}
+    	<tr>
+    		<td><a href="workoutPlanByID?WorkoutID={{ workout.WorkoutID }}">{{ workout.WorkoutID }}</a></td>
+    		<td>{{ workout.WorkoutName }}</td>
+    		<td>{{ workout.WorkoutType }}</td>
+            <td>{{ workout.WorkoutTimeTotalHours }}</td>
+            <td>{{ workout.NoOfDaysWorkout }}</td>
+    	</tr>  
+    {% endfor %}
+    </table>
+
+    <br/>
+    <br/>
+    <a href="trainerMain">Back to Trainer Dashboard</a>
+   
+{% endblock %}

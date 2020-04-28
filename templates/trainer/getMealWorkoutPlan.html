@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Assign Meal & Workout Plan</h1>
+    <form action="/assignMealWorkoutPlan" method="POST">
+        MealPlan List:<br>
+        <select name="MealPlanName">
+            {% for mealPlan in mealPlanName %}
+            <option value="{{ mealPlan.MealPlanName }}">{{ mealPlan.MealPlanName }}</option>
+            {% endfor %}
+        </select>
+
+        <br/>
+        <br/>
+
+        Workout List:<br>
+        <select name="WorkoutName">
+            {% for workout in workoutName %}
+            <option value="{{ workout.WorkoutName }}">{{ workout.WorkoutName }}</option>
+            {% endfor %}
+        </select>
+        <br/>
+        <br/>
+        <input type="hidden" name="MemberID" value="{{ memberID }}" />
+        <input type="submit" value="Assign Meal Workout Plans" />
+        <br/>
+        <br/>
+        <a href="trainerAssignedMemberList">Back to Trainer Assigned Member List</a>
+        
+    </form>
+   
+{% endblock %}

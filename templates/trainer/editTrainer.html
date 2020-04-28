@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Trainer</h1>
+	{% if msg %}
+  		<div id="errorMsg">
+  			{% for err in msg %}
+				{{ err }}<br>
+  			{% endfor %}
+  		</div>
+  		<br/>
+  	{% endif %}
+	  
+	<form action="/editTrainer" method="POST">
+		<b>Trainer Name:</b><br>
+		<input type="text" name="TrainerName" value="{{ trainer.TrainerName }}" />
+		<br><br>
+		
+		<b>Trainer Gender:</b><br>
+		<input type="text" name="TrainerGender" value="{{ trainer.TrainerGender }}" />
+		<br><br>
+		
+		<b>Trainer Email:</b><br>
+		<input type="text" name="TrainerEmail" value="{{ trainer.TrainerEmail }}" />
+		<br><br>
+		
+		<input type="hidden" name="TrainerID" value="{{ trainer.TrainerID }}" />
+		
+		<b>Trainer Password:</b><br>
+		<input type="password" name="TrainerPassword" />
+		<br><br>
+		
+		<b>Retype Password:</b><br>
+		<input type="password" name="TrainerPassword2" />
+		<br><br>
+
+		<b>Trainer Years Of Experience:</b><br>
+		<input type="text" name="TrainerYrsOfExperience" value="{{ trainer.TrainerYrsOfExperience }}" /><br><br>
+		
+		<input type="submit" value="Edit Trainer"/>
+
+		<br/>
+		<br/>
+		<a href="trainerMain">Cancel</a>  
+			
+	</form>
+{% endblock %}

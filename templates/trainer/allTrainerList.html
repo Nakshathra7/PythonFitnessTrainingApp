@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Trainer List</h1>
+    
+    <table>
+    	<tr>
+    		<th>TrainerID</th>
+    		<th>TrainerName</th>
+            <th>TrainerEmail</th>
+    		<th>TrainerYrsOfExperience</th>
+            <th>TrainerGender</th>
+    	</tr>
+    {% for trainer in trainers %}
+    	<tr>
+    		<td>{{ trainer.TrainerID }}</td>
+    		<td>{{ trainer.TrainerName }}</td>
+    		<td>{{ trainer.TrainerEmail }}</td>
+            <td>{{ trainer.TrainerYrsOfExperience }}</td>
+            <td>{{ trainer.TrainerGender }}</td>
+    	</tr>  
+    {% endfor %}
+    </table>
+    <br/>
+    <br/>
+    <a href="adminMain">Return to Admin Dashboard View</a> 
+   
+{% endblock %}

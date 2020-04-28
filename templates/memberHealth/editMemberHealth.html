@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Member Health</h1>
+	{% if msg %}
+      	<div id="errorMsg">
+	  		{% for err in msg %}
+				{{ err }}<br>
+	 	 	{% endfor %}
+	  	</div>
+	  <br/>
+	{% endif %}
+	  
+	<form action="/editMemberHealth?MemberID={{ memberID }}" method="POST">
+		<b>Member Age:</b><br>
+		<input type="text" name="MemberAge" value="{{ memberHealth.MemberAge }}" />
+		<br><br>
+		
+		<b>Member Gender:</b><br>
+		<input type="text" name="MemberGender" value="{{ memberHealth.MemberGender }}" />
+		<br><br>
+		
+		<b>Member Height:</b><br>
+		<input type="text" name="MemberHeight" value="{{ memberHealth.MemberHeight }}" />
+		<br><br>
+
+		<b>Member Weight:</b><br>
+		<input type="text" name="MemberWeight" value="{{ memberHealth.MemberWeight }}" />
+		<br><br>
+
+		<b>Member MedicalAilments:</b><br>
+		<input type="text" name="MemberMedicalAilments" value="{{ memberHealth.MemberMedicalAilments }}" />
+		<br><br>
+
+		<b>Member BMI:</b><br>
+		<input type="text" name="MemberBMI" value="{{ memberHealth.MemberBMI }}" />
+		<br><br>
+
+		<b>Member Profession:</b><br>
+		<input type="text" name="MemberProfession" value="{{ memberHealth.MemberProfession }}" />
+		<br><br>
+		
+		<input type="hidden" name="MemberHealthID" value="{{ memberHealth.MemberHealthID }}" />
+		
+		<input type="submit" value="Edit MemberHealth"/>
+		<br/>
+		<br/>
+		<a href="memberMain">Cancel</a>
+	</form>
+{% endblock %}

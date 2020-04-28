@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>New Workout</h1>
+    {% if msg %}
+        <div id="errorMsg">
+            {% for err in msg %}
+                {{ err }}<br>
+            {% endfor %}
+        </div>
+        <br/>
+    {% endif %}
+    <form action="/addWorkout" method="POST">
+        <b>Workout Name:</b><br>
+        <input type="text" name="WorkoutName" />
+        <br><br>
+
+        <b>Workout Type:</b><br>
+        <input type="text" name="WorkoutType" />
+        <br><br>
+
+        <b>Workout Time Total Hours:</b><br>
+        <input type="text" name="WorkoutTimeTotalHours" />
+        <br><br>
+
+        <b>No Of Days Workout:</b><br>
+        <input type="text" name="NoOfDaysWorkout" />
+        <br><br>
+
+        <input type="submit" value="Add Workout" />
+        <br/>
+        <br/>
+        <a href="trainerMain">Cancel</a> 
+    </form>
+    
+{% endblock %}

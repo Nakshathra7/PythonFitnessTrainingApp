@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Success...!!!</h1>
+	<div class="msgText">
+		{% if msg %}
+	     	{{ msg }}
+	    {% else %}
+	     	Operation complete.
+	    {% endif %}
+	</div>
+	<br/>
+	<a href="trainerMain">Return to Trainer Dashboard View</a> 
+{% endblock %}

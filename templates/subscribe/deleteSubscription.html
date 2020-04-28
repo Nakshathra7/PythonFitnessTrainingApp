@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Success...!!!</h1>
+	<div class="msg">
+		{% if msg %}
+     		{{ msg }}
+      	{% else %}
+     		Operation complete.
+      	{% endif %}
+	</div>
+	<br/>
+	<a href="adminMain">Return to Admin Dashboard View</a> 
+{% endblock %}

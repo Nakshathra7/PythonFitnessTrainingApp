@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Edit Customer</h1>
+    {% if msg %}
+        <div id="errorMsg">
+            {% for err in msg %}
+            {{ err }}
+        </div>
+    {% end if %}
+    <form action="/editCustomer" method="POST">
+        First Name:<br>
+        <input type="text" name="fname" value="{{ customer.fname }}" /><br><br>
+
+        Last Name:<br>
+        <input type="text" name="lname" value="{{ customer.lname }}" /><br><br>
+
+        Email:<br>
+        <input type="text" name="email" value="{{ customer.email }}" /><br><br>
+
+        <input type="hidden" name="id" value="{{ customer.id }}" />
+
+        Password:<br>
+        <input type="password" name="password" /><br><br>
+
+        Retype Password:<br>
+        <input type="password" name="retypepassword" /><br><br>
+
+        Subscribe:<br>
+        <select name="subscribed">
+            <option selected="True" value="True">Yes</option>
+            <option value="False">No</option>
+        </select>
+
+        <br>
+        <br>
+
+        <input type="submit" value="Save Customer" />
+        
+    </form/>
+    
+{% endblock %}

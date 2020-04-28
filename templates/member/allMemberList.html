@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Member List</h1>
+    
+    <table>
+    	<tr>
+    		<th>MemberID</th>
+    		<th>MemberName</th>
+            <th>MemberAddress</th>
+    		<th>MemberEmail</th>
+    	</tr>
+    {% for member in members %}
+    	<tr>
+    		<td>{{ member.MemberID }}</td>
+    		<td>{{ member.MemberName }}</td>
+    		<td>{{ member.MemberAddress }}</td>
+            <td>{{ member.MemberEmail }}</td>
+    	</tr>  
+    {% endfor %}
+    </table>
+    <br/>
+    <br/>
+    <a href="adminMain">Return to Admin Dashboard View</a> 
+   
+{% endblock %}

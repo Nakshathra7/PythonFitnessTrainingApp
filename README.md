@@ -42,6 +42,6 @@
 * Admin Read TrainerAssignment
 * Admin Delete TrainerAssignment
 
-## Class Diagram
+## Relational Diagram
 
-![GitHub Logo](/images/FitnessTraining_ClassDiagram.png)
+![GitHub Logo](/images/FitnessTraining_RelationalDiagram.png)

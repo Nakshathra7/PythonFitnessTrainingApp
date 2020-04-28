@@ -1,0 +1,46 @@
+{% extends "loginbase.html" %}
+
+{% block content %}
+    <h1>New Member Health</h1>
+    {% if msg %}
+        <div id="errorMsg">
+            {% for err in msg %}
+                {{ err }}<br>
+            {% endfor %}
+        </div>
+        <br/>
+    {% endif %}
+    <form action="/addMemberHealth?MemberID={{ memberID }}" method="POST">
+        <b>Member Age:</b><br>
+        <input type="number" name="MemberAge" min=1 max=90 />
+        <br><br>
+
+        <b>Member Gender:</b><br>
+        <input type="text" name="MemberGender" />
+        <br><br>
+
+        <b>Member Height:</b><br>
+        <input type="number" name="MemberHeight" min=1 max=200 />
+        <br><br>
+
+        <b>Member Weight:</b><br>
+        <input type="number" name="MemberWeight" min=1 max=500 />
+        <br><br>
+
+        <b>Member BMI:</b><br>
+        <input type="number" name="MemberBMI" min=1 max=50/>
+        <br><br>
+
+        <b>Member Profession:</b><br>
+        <input type="text" name="MemberProfession" />
+        <br><br>
+
+        <b>Member Medical Ailments:</b><br>
+        <input type="text" name="MemberMedicalAilments" />
+        <br><br>
+
+        <input type="submit" value="Add Member Health" />
+        
+    </form>
+    
+{% endblock %}

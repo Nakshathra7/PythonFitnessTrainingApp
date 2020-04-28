@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Meal Plan List</h1>
+    
+    <table>
+        <tr>
+            <th>MealPlanName</th>
+            <th>MealPlanDescription</th>
+            <th>NoOfDaysMealPlan</th>
+        </tr>
+        <tr>
+            <td>{{ meals.MealPlanName }}</td>
+            <td>{{ meals.MealPlanDescription }}</td>
+            <td>{{ meals.NoOfDaysMealPlan }}</td>
+        </tr> 
+    </table>
+   <br/>
+   <br/>
+   <a href="memberMain">Back to Member Dashboard</a>
+
+{% endblock %}

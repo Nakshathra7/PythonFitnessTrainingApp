@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Meal Plan List</h1>
+    
+    <table>
+    	<tr>
+    		<th>MealPlanID</th>
+    		<th>MealPlanName</th>
+            <th>MealPlanDescription</th>
+    		<th>NoOfDaysMealPlan</th>
+    	</tr>
+    {% for meal in meals %}
+    	<tr>
+    		<td><a href="mealPlanByID?MealPlanID={{ meal.MealPlanID }}">{{ meal.MealPlanID }}</a></td>
+    		<td>{{ meal.MealPlanName }}</td>
+    		<td>{{ meal.MealPlanDescription }}</td>
+            <td>{{ meal.NoOfDaysMealPlan }}</td>
+    	</tr>  
+    {% endfor %}
+    </table>
+   <br/>
+   <br/>
+   <a href="trainerMain">Back to Trainer Dashboard</a>
+
+{% endblock %}
