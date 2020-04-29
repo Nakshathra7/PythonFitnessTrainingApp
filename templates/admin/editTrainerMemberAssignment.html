@@ -1,10 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Trainer Member Assignment List</h1>
-    <form action="/trainerMemberAssignment" method="POST">
+    <h1>Update Trainer Member Assignment List</h1>
+    <form action="/editTrainerMemberAssignment" method="POST">
         Member List:<br>
             <select name="MemberName">
+                <option value="{{ member.MemberName }}">{{ member.MemberName }}</option>
                 {% for member in members %}
                 <option value="{{ member.MemberName }}">{{ member.MemberName }}</option>
                 {% endfor %}

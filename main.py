@@ -67,7 +67,7 @@ def checkSession():
     if 'active' in session.keys():
         timeSinceLastActive = time.time() - session['active']
         print(timeSinceLastActive)
-        if timeSinceLastActive > 15000:
+        if timeSinceLastActive > 150:
             session['msg'] = 'Your Session has Timed Out.'
             return False
         else:
@@ -173,48 +173,47 @@ def trainerMemberAssignment():
         msg = 'Member is Already Assigned to Trainer'
         return render_template('admin/trainerMemberList.html', title='Trainer Member Assignment List', members=m.data, trainers=t.data, msg=msg)
 
-@app.route('/editTrainerMemberAssignment', methods = ['GET','POST'])
-def editTrainerMemberAssignment():
-    if checkSession() == False: #check to make sure the user is logged in
-        return redirect('login')
-    tm = trainerMemberAssignmentList()
-    t.set('TrainerName',request.form.get('TrainerName'))
-    t.set('TrainerEmail',request.form.get('TrainerEmail'))
-    t.set('TrainerPassword',request.form.get('TrainerPassword'))
-    t.set('TrainerYrsOfExperience',request.form.get('TrainerYrsOfExperience'))
-    t.set('TrainerGender',request.form.get('TrainerGender'))
-    t.add() 
-    if t.verifyNew():
-        t.update()
-        return render_template('trainer/savedTrainer.html', title='Trainer Saved',  trainer=t.data[0])
-    else:
-        return render_template('trainer/editTrainerMemberAssignment.html', title='Trainer Not Saved',  trainer=t.data[0],msg=t.errList) 
+# @app.route('/editTrainerMemberAssignment', methods = ['GET','POST'])
+# def editTrainerMemberAssignment():
+#     if checkSession() == False: #check to make sure the user is logged in
+#         return redirect('login')
+#     tm = trainerMemberAssignmentList()
+#     t.set('TrainerName',request.form.get('TrainerName'))
+#     t.set('TrainerEmail',request.form.get('TrainerEmail'))
+#     t.set('TrainerPassword',request.form.get('TrainerPassword'))
+#     t.set('TrainerYrsOfExperience',request.form.get('TrainerYrsOfExperience'))
+#     t.set('TrainerGender',request.form.get('TrainerGender'))
+#     t.add() 
+#     if t.verifyNew():
+#         t.update()
+#         return render_template('trainer/savedTrainer.html', title='Trainer Saved',  trainer=t.data[0])
+#     else:
+#         return render_template('trainer/editTrainerMemberAssignment.html', title='Trainer Not Saved',  trainer=t.data[0],msg=t.errList) 
 
-@app.route('/allTrainerMemberList')
-def allTrainerMemberList():
-    if checkSession() == False: #check to make sure the user is logged in
-        return redirect('login')
-    m = memberList()
-    t = trainerList()
-    tm = trainerMemberAssignmentList()
-    tm.getAll()
-    print(tm.data)
-    return render_template('admin/allTrainerMemberList.html', title='Trainer Member List', trainerMembers=tm.data)
+# @app.route('/allTrainerMemberList')
+# def allTrainerMemberList():
+#     if checkSession() == False: #check to make sure the user is logged in
+#         return redirect('login')
+#     m = memberList()
+#     t = trainerList()
+#     tm = trainerMemberAssignmentList()
+#     tm.getAll()
+#     print(tm.data)
+#     return render_template('admin/allTrainerMemberList.html', title='Trainer Member List', trainerMembers=tm.data)
 
-@app.route('/trainerMemberAssignmentByID') 
-def trainerMemberAssignmentByID():
-    if checkSession() == False: #check to make sure the user is logged in
-        return redirect('login')
-    tm = trainerMemberAssignmentList()
-    if request.args.get(tm.pk) is None:
-        return render_template('admin/trainerMemberError.html', msg='No TrainerMemberAssignment ID is given.')
+# @app.route('/trainerMemberAssignmentByID') 
+# def trainerMemberAssignmentByID():
+#     if checkSession() == False: #check to make sure the user is logged in
+#         return redirect('login')
+#     tm = trainerMemberAssignmentList()
+#     if request.args.get(tm.pk) is None:
+#         return render_template('admin/trainerMemberError.html', msg='No TrainerMemberAssignment ID is given.')
     
-    tm.getByID(request.args.get(tm.pk))
-    if len(tm.data) <= 0:
-        return render_template('admin/trainerMemberError.html', msg='TrainerMemberAssignment ID does not exist')
-    print(tm.data)
-    return render_template('admin/editTrainerMemberAssignment.html', title='Trainer Member List', trainerMember=tm.data[0])
-
+#     tm.getByID(request.args.get(tm.pk))
+#     if len(tm.data) <= 0:
+#         return render_template('admin/trainerMemberError.html', msg='TrainerMemberAssignment ID does not exist')
+#     print(tm.data)
+#     return render_template('admin/editTrainerMemberAssignment.html', title='Trainer Member List', trainerMember=tm.data[0])
 
 # Admin Section Ends  
 
